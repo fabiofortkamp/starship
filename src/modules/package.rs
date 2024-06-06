@@ -936,6 +936,35 @@ license = "MIT"
         expect_output(&project_dir, Some("v0.1.0"), None);
         project_dir.close()
     }
+
+    #[test]
+    fn test_extract_setup_py_version_line_double_quotes() -> io::Result<()> {
+        let config_name = "setup.py";
+        let config_content = String::from(
+            "setup(
+            version=\"0.1.0\"",
+        );
+
+        let project_dir = create_project_dir()?;
+        fill_config(&project_dir, config_name, Some(&config_content))?;
+        expect_output(&project_dir, Some("v0.1.0"), None);
+        project_dir.close()
+    }
+
+    #[test]
+    fn test_extract_setup_py_version_line_triple_quotes() -> io::Result<()> {
+        let config_name = "setup.py";
+        let config_content = String::from(
+            "setup(
+            version=\"\"\"0.1.0\"\"\"",
+        );
+
+        let project_dir = create_project_dir()?;
+        fill_config(&project_dir, config_name, Some(&config_content))?;
+        expect_output(&project_dir, Some("v0.1.0"), None);
+        project_dir.close()
+    }
+
     #[test]
     fn test_extract_gradle_version_single_quote() -> io::Result<()> {
         let config_name = "build.gradle";
