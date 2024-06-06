@@ -101,6 +101,26 @@ fn get_setup_cfg_version(context: &Context, config: &PackageConfig) -> Option<St
     }
 }
 
+fn get_setup_py_version(context: &Context, config: &PackageConfig) -> Option<String> {
+    let file_contents = context.read_file_from_pwd("setup.py")?;
+
+    // find line that starts with `version=`
+    // and extract the version from it
+    for line in file_contents.lines() {
+        if line.trim().starts_with("version=") {
+            // get the version string from the line
+            // by splitting the line by `=` and taking the second part
+            let version = line.split('=').nth(1)?;
+            // strip all possible quotes and whitespaces
+            let version = version.trim().trim_matches('\'').trim_matches('"');
+            return format_version(version, config.version_format);
+        }
+    }
+
+    None
+
+}
+
 fn get_gradle_version(context: &Context, config: &PackageConfig) -> Option<String> {
     context
         .read_file_from_pwd("gradle.properties")
@@ -324,6 +344,7 @@ fn get_version(context: &Context, config: &PackageConfig) -> Option<String> {
         get_node_package_version,
         get_pyproject_version,
         get_setup_cfg_version,
+        get_setup_py_version,
         get_composer_version,
         get_gradle_version,
         get_julia_project_version,
@@ -902,6 +923,19 @@ license = "MIT"
         project_dir.close()
     }
 
+    #[test]
+    fn test_extract_setup_py_version_line_single_quotes() -> io::Result<()> {
+        let config_name = "setup.py";
+        let config_content = String::from(
+            "setup(
+            version='0.1.0'",
+        );
+
+        let project_dir = create_project_dir()?;
+        fill_config(&project_dir, config_name, Some(&config_content))?;
+        expect_output(&project_dir, Some("v0.1.0"), None);
+        project_dir.close()
+    }
     #[test]
     fn test_extract_gradle_version_single_quote() -> io::Result<()> {
         let config_name = "build.gradle";
