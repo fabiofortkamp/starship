@@ -1432,6 +1432,19 @@ Title: Starship
         tempfile::tempdir()
     }
 
+    /// Fills a file in a project directory with the given contents
+    ///
+    /// # Parameters
+    /// - `project_dir`: The directory to create the file in
+    /// - `file_name`: The name of the file to create
+    /// - `contents`: The contents to write to the file. If `None`, the
+    ///  file will be empty
+
+    /// # Error
+    /// Returns an `Err` if the file cannot be created or written to
+    ///
+    /// # Returns
+    /// Returns `Ok` if the file was successfully created and written to
     fn fill_config(
         project_dir: &TempDir,
         file_name: &str,
@@ -1442,6 +1455,15 @@ Title: Starship
         file.sync_all()
     }
 
+    /// Checks the output of the `package` module
+    ///
+    /// # Parameters
+    /// - `project_dir`: The directory to check for the project file
+    /// - `contains`: The string to check for in the output. If `None`, the
+    /// output should also be `None`
+    /// - `config`: The configuration to use for the module. If `None`, the
+    /// default configuration will be used (an empty configuration just
+    /// enabling the package module)
     fn expect_output(project_dir: &TempDir, contains: Option<&str>, config: Option<toml::Table>) {
         let starship_config = config.unwrap_or(toml::toml! {
             [package]
