@@ -1423,6 +1423,11 @@ Title: Starship
         expect_output(&project_dir, Some("v1.0.0"), None);
         project_dir.close()
     }
+
+    /// Creates an empty directory for filling with project files
+    ///
+    /// # Error
+    /// Returns an `Err` if the directory cannot be created
     fn create_project_dir() -> io::Result<TempDir> {
         tempfile::tempdir()
     }
