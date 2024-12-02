@@ -1,5 +1,105 @@
 # Changelog
 
+## [1.21.1](https://github.com/starship/starship/compare/v1.21.0...v1.21.1) (2024-10-18)
+
+
+### Reverts
+
+* "perf(fish): Skip unnecessary indirection in starship init fish" ([#6326](https://github.com/starship/starship/issues/6326)) ([00d927b](https://github.com/starship/starship/commit/00d927bb20e618b587635876d2e10047f98eff88))
+
+## [1.21.0](https://github.com/starship/starship/compare/v1.20.1...v1.21.0) (2024-10-17)
+
+
+### Features
+
+* **deno:** add `deno.lock` file to default `detect_files` list ([#6310](https://github.com/starship/starship/issues/6310)) ([22c6c52](https://github.com/starship/starship/commit/22c6c5201d8fa682ad43501cf46427263a530c71))
+* **hostname:** add option to replace hostnames with aliases ([#6097](https://github.com/starship/starship/issues/6097)) ([68a8fc9](https://github.com/starship/starship/commit/68a8fc9563a52c4119241375d181ff68bb3d3da3))
+* **mojo:** add module for Mojo language ([#6108](https://github.com/starship/starship/issues/6108)) ([171746a](https://github.com/starship/starship/commit/171746a58408cbc0d48dedc52e21327bd35fccd4))
+* **package:** support alternative gradle module version syntax ([#6079](https://github.com/starship/starship/issues/6079)) ([a62012e](https://github.com/starship/starship/commit/a62012e3280238b4c794bbe484b296af3b8fb53a))
+* **python:** Add detect env vars option  ([#4486](https://github.com/starship/starship/issues/4486)) ([8a2d944](https://github.com/starship/starship/commit/8a2d944bc80a0a8358c30e639e8af51c1d45d973))
+* **python:** detect pixi and ipynb files ([#6228](https://github.com/starship/starship/issues/6228)) ([36134d8](https://github.com/starship/starship/commit/36134d896bda3c739ffd6555be62499716b0a9b0))
+* **release:** codesign windows release binaries ([#6273](https://github.com/starship/starship/issues/6273)) ([fcc697b](https://github.com/starship/starship/commit/fcc697b9b31aef44aefaf9a6660d51d44f707149))
+
+
+### Bug Fixes
+
+* **bash:** fix variable leak in Bash integration ([#6143](https://github.com/starship/starship/issues/6143)) ([e1189ed](https://github.com/starship/starship/commit/e1189ed7567de580d8f51c8baf870056a6060789))
+* **cmd_duration:** Make render_time format more consistent ([#5825](https://github.com/starship/starship/issues/5825)) ([4abea6b](https://github.com/starship/starship/commit/4abea6b601c53adfa5719a7aac11069dc054cdf8))
+* **docker_context:** Ignore Docker Desktop "desktop-linux" context. ([#6314](https://github.com/starship/starship/issues/6314)) ([14babde](https://github.com/starship/starship/commit/14babde435f6307a8a28f9d323f0d66a319e9eab))
+* **docs:** correct username options ([#6084](https://github.com/starship/starship/issues/6084)) ([d96fbc5](https://github.com/starship/starship/commit/d96fbc5bcb9c039f875c4a55cff31edda57d5e6e))
+* **fish:** add missing arguments for fish transient prompt functions ([#6181](https://github.com/starship/starship/issues/6181)) ([d6814be](https://github.com/starship/starship/commit/d6814be0ba35dd52f6f0d0e1a3f14d5f106efd63)), closes [#6180](https://github.com/starship/starship/issues/6180)
+* **fish:** improve fish transient prompt ([#6107](https://github.com/starship/starship/issues/6107)) ([274dff3](https://github.com/starship/starship/commit/274dff37dbb375821a90d6976a11cf57d9386e4f))
+* **fish:** use correct input function in transient execute ([#6265](https://github.com/starship/starship/issues/6265)) ([244c2c6](https://github.com/starship/starship/commit/244c2c629e1f358bf849923531d5cf0d69c2db2d))
+* Fixed "Click to download TOML" links ([#6234](https://github.com/starship/starship/issues/6234)) ([0200d75](https://github.com/starship/starship/commit/0200d75b3781977d5335e637858f4e0996ee0384))
+* **git_status:** read proper name for core.fsmonitor flag ([#6173](https://github.com/starship/starship/issues/6173)) ([33b3b8e](https://github.com/starship/starship/commit/33b3b8e3986f6180a8f7b461a5a07fea702ec628))
+* **package:** support alternative gradle module version syntax ([#6080](https://github.com/starship/starship/issues/6080)) ([a62012e](https://github.com/starship/starship/commit/a62012e3280238b4c794bbe484b296af3b8fb53a))
+* **python:** improve parsing of `pyvenv.cfg` files ([#6145](https://github.com/starship/starship/issues/6145)) ([7b65ad5](https://github.com/starship/starship/commit/7b65ad51635463003941ec0ecea1d4d315b2df53))
+* use `whoami` for user/hostname queries again ([#6311](https://github.com/starship/starship/issues/6311)) ([77f0883](https://github.com/starship/starship/commit/77f08832d5228dff6c0e01ba4d4ad206c9d2362f))
+
+
+### Performance Improvements
+
+* **fish:** Skip unnecessary indirection in starship init fish ([#6253](https://github.com/starship/starship/issues/6253)) ([798f640](https://github.com/starship/starship/commit/798f64033f5348793003ddd74fa0ce1c744c300b))
+* Skip unnecessary indirection in starship init fish ([798f640](https://github.com/starship/starship/commit/798f64033f5348793003ddd74fa0ce1c744c300b))
+
+## [1.20.1](https://github.com/starship/starship/compare/v1.20.0...v1.20.1) (2024-07-26)
+
+
+### Bug Fixes
+
+* **ci:** move to macos-latest image ([#6132](https://github.com/starship/starship/issues/6132)) ([c7a8ea7](https://github.com/starship/starship/commit/c7a8ea757033512b5723a39be71bdb91fdcfbdb1))
+
+## [1.20.0](https://github.com/starship/starship/compare/v1.19.0...v1.20.0) (2024-07-26)
+
+
+### Features
+
+* **color:** add prev_fg and prev_bg as color specifiers based on the previous foreground/background colors respectively ([#6017](https://github.com/starship/starship/issues/6017)) ([9a3e87f](https://github.com/starship/starship/commit/9a3e87f2cbaa8ca4b8dea41f4f56ff297e94bb1a))
+* **color:** add prevfg,prevbg as color specifiers based on the previous foreground/background colors respectively ([9a3e87f](https://github.com/starship/starship/commit/9a3e87f2cbaa8ca4b8dea41f4f56ff297e94bb1a))
+* **gcloud:** Disabled gcloud module when active config hasn't been set ([#6039](https://github.com/starship/starship/issues/6039)) ([4d36d46](https://github.com/starship/starship/commit/4d36d463b91a245a62c357de308cad3cdec48edf))
+* **purescript:** add support for spago-next configuration files ([#6036](https://github.com/starship/starship/issues/6036)) ([e028186](https://github.com/starship/starship/commit/e0281868c9d7801fc25f64f86ab8312d2a5a1794))
+
+
+### Bug Fixes
+
+* **direnv:** replace nonexistent "orange" color with "bright-yellow" ([#5969](https://github.com/starship/starship/issues/5969)) ([478d5cc](https://github.com/starship/starship/commit/478d5cccb6f7f4622dd681756cf004ba92c98607))
+* **dotnet:** Remove duplicate v in dotnet version  ([#6060](https://github.com/starship/starship/issues/6060)) ([52a89a5](https://github.com/starship/starship/commit/52a89a515ed44d861ea556a0bb70d6901660a9b5))
+* improve non-msvc windows support by bumping stable dependencies ([#5989](https://github.com/starship/starship/issues/5989)) ([50a6b84](https://github.com/starship/starship/commit/50a6b846045899c88d95b063a6b939a6dcb72a5c))
+* **k8s:** don't trigger if scan config is set but env vars are not ([#5979](https://github.com/starship/starship/issues/5979)) ([8c75822](https://github.com/starship/starship/commit/8c75822d4380e020ebd289a4ef06cd4d31ee5196))
+* **preset:** fix typo in Open Policy Agent module format string ([#6118](https://github.com/starship/starship/issues/6118)) ([eba9748](https://github.com/starship/starship/commit/eba9748eb1bd9e1802d2a770eb0907cdb73292d6))
+
+
+### Performance Improvements
+
+* **k8s:** Improve performance of kubeconfig module ([#6032](https://github.com/starship/starship/issues/6032)) ([fae92b2](https://github.com/starship/starship/commit/fae92b29646f73bf1eb843fde80885c58480e85b))
+
+## [1.19.0](https://github.com/starship/starship/compare/v1.18.2...v1.19.0) (2024-05-15)
+
+
+### Features
+
+* **container:** show name if available ([#5195](https://github.com/starship/starship/issues/5195)) ([3e3f18e](https://github.com/starship/starship/commit/3e3f18ef277c9bb3db9f60c964f280c7d981102c))
+* **gleam:** Add Gleam module ([#5886](https://github.com/starship/starship/issues/5886)) ([34a8f7e](https://github.com/starship/starship/commit/34a8f7e62845fd66df3f6f9003cb850f2b0d9bc5))
+* **k8s:** Add detect env vars option ([#4488](https://github.com/starship/starship/issues/4488)) ([e3b5dff](https://github.com/starship/starship/commit/e3b5dff3524608328de6ee3cbb390f8c640b0ce0))
+* **nats:** Add NATS Context ([#5900](https://github.com/starship/starship/issues/5900)) ([5facd85](https://github.com/starship/starship/commit/5facd85da56d28e74878286923f148bc468f71c3))
+* **odin:** Add Odin Lang module ([#5873](https://github.com/starship/starship/issues/5873)) ([335c514](https://github.com/starship/starship/commit/335c514e9ee5fa5bc8a8294b4804ddf198504b97))
+* **username:** add aliases option ([#5855](https://github.com/starship/starship/issues/5855)) ([9c1eadd](https://github.com/starship/starship/commit/9c1eaddae154daed9e1d00faac414586f7920013))
+
+
+### Bug Fixes
+
+* **bash:** fix handling of the preserved DEBUG trap (used in Bash &lt;= 4.3) ([#5908](https://github.com/starship/starship/issues/5908)) ([fe1a8df](https://github.com/starship/starship/commit/fe1a8df6fa5121cc83b288cf054a8ed16631d335))
+* **bash:** use `eval` instead of a procsub for the POSIX mode ([#5020](https://github.com/starship/starship/issues/5020)) ([0f859e8](https://github.com/starship/starship/commit/0f859e8b61c8ada354f4ea4147fb8752dca02c51))
+* **bash:** use eval instead of a procsub for the POSIX mode ([0f859e8](https://github.com/starship/starship/commit/0f859e8b61c8ada354f4ea4147fb8752dca02c51))
+* **bun:** change default icon ([#5880](https://github.com/starship/starship/issues/5880)) ([be4e97c](https://github.com/starship/starship/commit/be4e97c2d9169cbf0bc30e271dd4ba07530dc46f))
+* **scala:** use scala-cli first to avoid timeout ([2221a88](https://github.com/starship/starship/commit/2221a88f5ada124c657a265b878e37be47998766))
+* **xonsh:** remove `| cat` workaround from xonsh init ([#5113](https://github.com/starship/starship/issues/5113)) ([de5b7f0](https://github.com/starship/starship/commit/de5b7f041a8c88ecf912b3be3b32d70f76518348))
+
+
+### Performance Improvements
+
+* **scala:** use scala-cli first to avoid timeout ([#5952](https://github.com/starship/starship/issues/5952)) ([2221a88](https://github.com/starship/starship/commit/2221a88f5ada124c657a265b878e37be47998766))
+
 ## [1.18.2](https://github.com/starship/starship/compare/v1.18.1...v1.18.2) (2024-03-29)
 
 
